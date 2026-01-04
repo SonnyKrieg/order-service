@@ -15,10 +15,12 @@ public class OrderController {
     public OrderController(OrderService orderService) {
         this.orderService = orderService;
     }
+
     @GetMapping
     public Flux<Order> getAllOrders() {
         return orderService.getAllOrders();
     }
+
     @PostMapping
     public Mono<Order> submitOrder(
             @RequestBody @Valid OrderRequest orderRequest
